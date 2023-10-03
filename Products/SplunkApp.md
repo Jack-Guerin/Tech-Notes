@@ -188,6 +188,20 @@ REGEX = (Subject:(?<Subject>(\s+Security\sID:\s+(?<Subject_SecurityID>.+?)(?:\n|
 SOURCE_KEY = EventXML
 ````
 
+# Field Extraction Process
+Field parsing can be performed utilizing the field extraction tool built into Splunk Web.
+- Run a base search in Splunk querying events requiring parsing.
+- Select the extract new fields button in the fields side bar.
+- Work through field extraction steps.
+    - Select a sample event.
+    - Select extraction method. Regular Expression or Delimiters. (If extracting from unstructured logs i.e syslog choose Regex). Click Next.
+    - Hihglight a value(s) from the raw log event to identify as a field(s).
+    - In pop up prompt choose Extract and provide a field name. Verify Sample Value tagged is correct. Finish by selecting Add Extraction.
+    - A preview for logs being parsed with the extracted field is generated. If you see incorrect results below, click an additional event to add it to the set of sample events. Highlight its values to improve the extraction. Click Next.
+    - Validate extractions are correct. remove values that are incorrectly highlighted in the Events tab. In the field tabs, inspect the extracted values for each field, and optionally click a value to apply it as a search filter to the Events tab event list. Click Next.
+    - The final step generates a Regular Expression. Copy regex logic for parsing target field.
+    - Click back until back to step 3 and repeat for each field needing extraction if necessary.
+
 ## See for more info
 - https://docs.splunk.com/Documentation/SplunkCloud/latest/Data/Advancedsourcetypeoverrides
 - https://docs.splunk.com/Documentation/Splunk/latest/Data/DataIngest
