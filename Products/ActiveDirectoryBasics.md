@@ -21,5 +21,5 @@
     - You should always have two domain controllers installed per site.
       - Each DC should have it's preferred DNS server IP set to each other.
       - Set alternate DNS server IP is loopback address.
-- 
-- 
+- Use '.local' domain name extension to differentiate internal AD vs external internet environments.
+- Forest functional level should match the version of your server or be as close (new) as possible. 
